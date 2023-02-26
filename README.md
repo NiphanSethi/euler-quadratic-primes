@@ -1,9 +1,9 @@
 # Euler Quadratic Primes
 
-- [The Problem Statement](#the-problem-statement)
+- [Problem Statement](#problem-statement)
 - [Potential Optimizations](#potential-optimizations)
 
-## The Problem Statement
+## Problem Statement
 
 Euler discovered the remarkable quadratic formula:
 
@@ -33,8 +33,4 @@ Please code up a brute-force solution to this problem (it will not finish in a r
  
  { $a \in$ odd numbers when $b \ne 2$, $a \in$ even numbers when $b = 2$ }
  
-for the quadratic expression to evaluate to a prime number. We can use this information to adjust the outer-most loop condition for the linear coefficient to be the following:
-
-`for a in range(LINEAR_COEFF_LOWER_LIMIT, LINEAR_COEFF_UPPER_LIMIT + 2, 2)`
-
-When calling the `calcNumConsecutivePrimes` function, we can add a condition to check if $b = 2$. If true, then pass $a - 1$, otherwise pass $a$ as the parameter. This will further reduce the number of iterations and improve the performance of the solution.
+for the quadratic expression to evaluate to a prime number. We can use this information to further reduce the total number of iterations: $b$ can be the outer loop while $a$ can be the nested loop iterating through odd numbers when $b \ne 2$ and even numbers when $b = 2$ (respecting the condition that $|a| < 1000$). 
